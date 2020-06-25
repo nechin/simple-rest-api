@@ -16,10 +16,10 @@ class DB
     /**
      * @var string - Configuration parameters
      */
-    private string $host = 'localhost';
-    private string $user = 'root';
-    private string $pass = '';
-    private string $name = 'mvc-db';
+    private string $host;
+    private string $user;
+    private string $pass;
+    private string $name;
     private string $charset = 'utf8';
 
     /**
@@ -63,6 +63,11 @@ class DB
      */
     public function __construct()
     {
+        $this->host = getenv('MYSQL_HOST');
+        $this->user = getenv('MYSQL_USER');
+        $this->pass = getenv('MYSQL_PASSWORD');
+        $this->name = getenv('MYSQL_DATABASE');
+
         $this->connection = new mysqli(
             $this->host, $this->user, $this->pass, $this->name
         );

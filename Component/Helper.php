@@ -105,9 +105,8 @@ class Helper
     /**
      * @param string $message
      */
-    public static function badRequest(string $message)
+    public static function responseError(string $message)
     {
-        header('HTTP/1.0 400 Bad Request');
         exit(json_encode(array(
             'error' => $message
         )));

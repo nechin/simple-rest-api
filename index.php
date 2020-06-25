@@ -9,24 +9,26 @@ spl_autoload_register(function ($class) {
     $baseName = explode('\\', $class);
     $baseName = array_pop($baseName);
 
+    $ds = DIRECTORY_SEPARATOR;
+
     $files = [
-        'Auth'              => '\Component\Auth.php',
-        'Helper'            => '\Component\Helper.php',
-        'Route'             => '\Component\Route.php',
-        'ProductEntity'     => '\Model\ProductEntity.php',
-        'OrderEntity'       => '\Model\OrderEntity.php',
-        'DB'                => '\Repository\Adapter\DB.php',
-        'ProductRepository' => '\Repository\ProductRepository.php',
-        'OrderRepository'   => '\Repository\OrderRepository.php',
-        'ProductService'    => '\Service\ProductService.php',
-        'OrderService'      => '\Service\OrderService.php',
-        'ProductController' => '\Controller\ProductController.php',
-        'OrderController'   => '\Controller\OrderController.php',
-        'View'              => '\View\View.php',
+        'Auth'              => 'Component' . $ds . 'Auth.php',
+        'Helper'            => 'Component' . $ds . 'Helper.php',
+        'Route'             => 'Component' . $ds . 'Route.php',
+        'ProductEntity'     => 'Model' . $ds . 'ProductEntity.php',
+        'OrderEntity'       => 'Model' . $ds . 'OrderEntity.php',
+        'DB'                => 'Repository' . $ds . 'Adapter' . $ds . 'DB.php',
+        'ProductRepository' => 'Repository' . $ds . 'ProductRepository.php',
+        'OrderRepository'   => 'Repository' . $ds . 'OrderRepository.php',
+        'ProductService'    => 'Service' . $ds . 'ProductService.php',
+        'OrderService'      => 'Service' . $ds . 'OrderService.php',
+        'ProductController' => 'Controller' . $ds . 'ProductController.php',
+        'OrderController'   => 'Controller' . $ds . 'OrderController.php',
+        'View'              => 'View' . $ds . 'View.php',
     ];
 
     if (isset($files[$baseName])) {
-        include_once __DIR__ . $files[$baseName];
+        include_once __DIR__ . $ds . $files[$baseName];
     }
 });
 

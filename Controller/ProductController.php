@@ -23,7 +23,7 @@ class ProductController
         $productRepository = new ProductRepository();
         $result = $productRepository->createTables();
         if (!$result) {
-            Helper::badRequest('Failed to create tables');
+            Helper::responseError('Failed to create tables');
         }
 
         // Add product data

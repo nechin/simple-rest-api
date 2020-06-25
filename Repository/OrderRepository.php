@@ -70,7 +70,7 @@ class OrderRepository
             $products = DB::instance()->query($query, $orderId)->fetch();
             if ($products) {
                 foreach ($products as $product) {
-                    $productIds[] = $product['id'];
+                    $productIds[] = $product['product_id'];
                 }
             }
 
